@@ -1,14 +1,39 @@
 const express = require("express")
 const mongoogse = require("mongoose")
 const cors = require("cors")
+const mongoose = require ("mongoose")
 
-const dburl = "mongodb://localhost:27017/sdpproject25"
-mongoogse.connect(dburl).then(() => {
-      console.log("Connected to DB Successfully")
+
+
+
+// // MongoDB compass Connection
+
+// const dburl = "mongodb://localhost:27017/REGISTRATION PROJECT"
+// //const dburl = process.env.mongodburl
+// mongoose.connect(dburl).then(() => {
+//     console.log("Connected to DB Successfully")
+// }).catch((err) => {
+//     console.log(err.message)
+// });
+
+
+// MongoDb Atlas Connection
+const dburl = "mongodb+srv://admin:admin@cluster0.k5qndjs.mongodb.net/Student Registration Project?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(dburl).then(() => {
+    console.log("Connected to MongoDb Atlas Successfully")
 }).catch((err) => {
-      console.log(err.message)
+    console.log(err.message)
 });
-require("mongoose")
+
+
+
+// const dburl = "mongodb://localhost:27017/sdpproject25"
+// mongoose.connect(dburl).then(() => {
+//       console.log("Connected to DB Successfully")
+// }).catch((err) => {
+//       console.log(err.message)
+// });
+
 const app= express()
 app.use(express.json()) // to parse JSON data
 app.use(cors())
